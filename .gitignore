@@ -1,0 +1,15 @@
+/outlook-web-pp-cli
+/outlook-web-pp-cli.exe
+/outlook-web-pp-mcp
+/outlook-web-pp-mcp.exe
+/bin/
+/build/
+/dist/
+*.har
+*.har.gz
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+.env
+.env.*
+.private/

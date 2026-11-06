@@ -1,0 +1,26 @@
+version: 2
+project_name: outlook-web-pp-cli
+changelog:
+  disable: true
+builds:
+  - id: outlook-web-pp-cli
+    main: ./cmd/outlook-web-pp-cli
+    binary: outlook-web-pp-cli
+    env: [CGO_ENABLED=0]
+    flags: [-trimpath]
+    ldflags:
+      - -s -w -X github.com/mikefwille/outlook-web-cli/internal/cli.version={{ .Version }}
+    targets: [darwin_arm64]
+  - id: outlook-web-pp-mcp
+    main: ./cmd/outlook-web-pp-mcp
+    binary: outlook-web-pp-mcp
+    env: [CGO_ENABLED=0]
+    flags: [-trimpath]
+    ldflags:
+      - -s -w -X main.version={{ .Version }}
+    targets: [darwin_arm64]
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+checksum:
+  name_template: checksums.txt
